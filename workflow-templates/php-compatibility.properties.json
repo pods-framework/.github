@@ -1,0 +1,5 @@
+{
+  "name": "PHP Compatibility",
+  "description": "PHP Compatibility workflow for WordPress plugins to ensure PHP versions are supported.",
+  "iconName": "octicon file-code"
+}

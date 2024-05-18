@@ -1,0 +1,5 @@
+{
+  "name": "PHP Static Analysis",
+  "description": "PHP Static Analysis workflow for WordPress plugins to ensure code meets expectations.",
+  "iconName": "octicon file-code"
+}

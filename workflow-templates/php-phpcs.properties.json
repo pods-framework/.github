@@ -1,0 +1,5 @@
+{
+  "name": "PHP CodeSniffer",
+  "description": "PHP CodeSniffer workflow for WordPress plugins to ensure code standards are followed.",
+  "iconName": "octicon file-code"
+}

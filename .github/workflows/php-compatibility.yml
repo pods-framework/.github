@@ -1,5 +1,5 @@
 name: 'PHP Compatibility'
-on: [pull_request,workflow_dispatch]
+on: workflow_call
 jobs:
   phpcs-compatibility:
     runs-on: ubuntu-latest

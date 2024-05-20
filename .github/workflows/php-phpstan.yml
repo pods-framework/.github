@@ -1,5 +1,5 @@
 name: 'PHP Static Analysis'
-on: [pull_request,workflow_dispatch]
+on: workflow_call
 jobs:
   phpstan:
     strategy:

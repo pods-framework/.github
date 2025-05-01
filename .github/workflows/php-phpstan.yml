@@ -11,7 +11,7 @@ jobs:
           "8.2",
           "8.3"
         ]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       # ------------------------------------------------------------------------------
       # Checkout the repository

@@ -44,7 +44,7 @@ jobs:
       # Install dependencies - ignoring php requirements
       # ------------------------------------------------------------------------------
       - name: Install dependencies
-        run: composer i --ignore-platform-req=php+
+        run: composer i --ignore-platform-reqs
       # ------------------------------------------------------------------------------
       # Run phpstan
       # ------------------------------------------------------------------------------

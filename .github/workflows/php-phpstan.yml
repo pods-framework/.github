@@ -42,8 +42,8 @@ jobs:
         run: composer config platform.php ${{ matrix.phpVersion }}
       - name: Setup third party repos with composer
         run: |
-          composer config --global http-basic.composer.gravity.io ${{ secrets.LICENSE_GRAVITY_FORMS }} https://github-ci.gf.local
-          composer config --global repositories.beaver-builder composer https://composer.wpbeaverbuilder.com/${{ secrets.LICENSE_BEAVER_BUILDER }}
+          composer config --global http-basic.composer.gravity.io "${secrets.LICENSE_GRAVITY_FORMS}" "https://github-ci.gf.local"
+          composer config --global repositories.beaver-builder composer "https://composer.wpbeaverbuilder.com/${secrets.LICENSE_BEAVER_BUILDER}"
       # ------------------------------------------------------------------------------
       # Install dependencies - ignoring php requirements
       # ------------------------------------------------------------------------------

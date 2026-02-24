@@ -23,7 +23,7 @@ jobs:
           LICENSE_BEAVER_BUILDER: ${{ secrets.LICENSE_BEAVER_BUILDER }}
         run: |
           composer config --global http-basic.composer.gravity.io $LICENSE_GRAVITY_FORMS https://github-ci.gf.local
-          composer config --global repositories.beaver-builder composer https://composer.wpbeaverbuilder.com/$LICENSE_BEAVER_BUILDER
+          composer config --global repositories.beaver-builder composer "https://composer.wpbeaverbuilder.com/$LICENSE_BEAVER_BUILDER"
       - name: Run PHPCS inspection
         uses: rtCamp/action-phpcs-code-review@v3
         env:

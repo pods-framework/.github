@@ -45,8 +45,8 @@ jobs:
           LICENSE_GRAVITY_FORMS: ${{ secrets.LICENSE_GRAVITY_FORMS }}
           LICENSE_BEAVER_BUILDER: ${{ secrets.LICENSE_BEAVER_BUILDER }}
         run: |
-          composer config --global http-basic.composer.gravity.io "$LICENSE_GRAVITY_FORMS" "https://github-ci.gf.local"
-          composer config --global repositories.beaver-builder composer "https://composer.wpbeaverbuilder.com/$LICENSE_BEAVER_BUILDER"
+          composer config --global http-basic.composer.gravity.io "${LICENSE_GRAVITY_FORMS}" "https://github-ci.gf.local"
+          composer config --global repositories.beaver-builder composer "https://composer.wpbeaverbuilder.com/${LICENSE_BEAVER_BUILDER}"
       # ------------------------------------------------------------------------------
       # Install dependencies - ignoring php requirements
       # ------------------------------------------------------------------------------

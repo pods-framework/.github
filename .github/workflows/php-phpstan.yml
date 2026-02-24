@@ -39,7 +39,7 @@ jobs:
       # Override composer php version
       # ------------------------------------------------------------------------------
       - name: Set php version ${{ matrix.phpVersion }} in composer
-        run:
+        run: |
           composer config platform.php ${{ matrix.phpVersion }}
           composer config http-basic.composer.gravity.io ${{ secrets.GRAVITY_FORMS_LICENSE }} https://github-ci.gf.local
       # ------------------------------------------------------------------------------

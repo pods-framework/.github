@@ -19,7 +19,7 @@ jobs:
       # Checkout the repository
       # ------------------------------------------------------------------------------
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       # ------------------------------------------------------------------------------
       # Get the changed files in a space separated list.
       # ------------------------------------------------------------------------------

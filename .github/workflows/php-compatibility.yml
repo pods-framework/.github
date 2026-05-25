@@ -1,5 +1,7 @@
 name: 'PHP Compatibility'
 on: workflow_call
+permissions:
+  contents: read
 jobs:
   phpcs-compatibility:
     runs-on: ubuntu-latest

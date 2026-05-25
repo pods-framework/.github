@@ -36,7 +36,7 @@ jobs:
         run: |
           composer config --global http-basic.composer.gravity.io $LICENSE_GRAVITY_FORMS https://github-ci.gf.local
           composer config --global repositories.beaver-builder composer "https://composer.wpbeaverbuilder.com/$LICENSE_BEAVER_BUILDER"
-      - uses: "ramsey/composer-install@v2"
+      - uses: "ramsey/composer-install@v4"
 
       - name: "Give permissions"
         run: |

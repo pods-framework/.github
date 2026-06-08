@@ -12,10 +12,8 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v6
       # ------------------------------------------------------------------------------
-      # Override composer php version
+      # Setup third party repos
       # ------------------------------------------------------------------------------
-      - name: Set php version ${{ matrix.phpVersion }} in composer
-        run: composer config platform.php ${{ matrix.phpVersion }}
       - name: Setup third party repos with composer
         env:
           LICENSE_GRAVITY_FORMS: ${{ secrets.LICENSE_GRAVITY_FORMS }}

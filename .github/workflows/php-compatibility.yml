@@ -6,19 +6,16 @@ jobs:
   phpcs-compatibility:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: |
-          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v5
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+      # ------------------------------------------------------------------------------
+      # Checkout the repository
+      # ------------------------------------------------------------------------------
+      - name: Checkout the repository
+        uses: actions/checkout@v6
+      # ------------------------------------------------------------------------------
+      # Override composer php version
+      # ------------------------------------------------------------------------------
+      - name: Set php version ${{ matrix.phpVersion }} in composer
+        run: composer config platform.php ${{ matrix.phpVersion }}
       - name: Setup third party repos with composer
         env:
           LICENSE_GRAVITY_FORMS: ${{ secrets.LICENSE_GRAVITY_FORMS }}
@@ -26,7 +23,17 @@ jobs:
         run: |
           composer config --global http-basic.composer.gravity.io $LICENSE_GRAVITY_FORMS https://github-ci.gf.local
           composer config --global repositories.beaver-builder composer "https://composer.wpbeaverbuilder.com/$LICENSE_BEAVER_BUILDER"
-      - name: Run PHPCS inspection
+      # ------------------------------------------------------------------------------
+      # Install dependencies - ignoring php requirements
+      # ------------------------------------------------------------------------------
+      - name: Install dependencies
+        uses: "ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda" # 4.0.0
+        with:
+          composer-options: "--ignore-platform-reqs --no-scripts"
+      # ------------------------------------------------------------------------------
+      # PHPCS compatibility
+      # ------------------------------------------------------------------------------
+      - name: Run PHPCS compatibility inspection
         uses: rtCamp/action-phpcs-code-review@v3
         env:
           GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}

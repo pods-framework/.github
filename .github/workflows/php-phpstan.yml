@@ -34,7 +34,7 @@ jobs:
       # Set up PHP and run phpstan
       # ------------------------------------------------------------------------------
       - name: Configure PHP environment to run phpstan
-        uses: shivammathur/setup-php@v2
+        uses: "shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f" # 2.37.0
         with:
           php-version: ${{ matrix.phpVersion }}
           tools: composer:v2
@@ -54,7 +54,9 @@ jobs:
       # Install dependencies - ignoring php requirements
       # ------------------------------------------------------------------------------
       - name: Install dependencies
-        run: composer i --ignore-platform-reqs --no-scripts
+        uses: "ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda" # 4.0.0
+        with:
+          composer-options: "--ignore-platform-reqs --no-scripts"
       # ------------------------------------------------------------------------------
       # Run phpstan
       # ------------------------------------------------------------------------------

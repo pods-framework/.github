@@ -41,8 +41,8 @@ jobs:
       # ------------------------------------------------------------------------------
       # Override composer php version
       # ------------------------------------------------------------------------------
-      - name: Set php version ${{ matrix.phpVersion }} in composer
-        run: composer config platform.php ${{ matrix.phpVersion }}
+      - name: Set php version 8.0 in composer
+        run: composer config platform.php 8.0
       - name: Setup third party repos with composer
         env:
           LICENSE_GRAVITY_FORMS: ${{ secrets.LICENSE_GRAVITY_FORMS }}
